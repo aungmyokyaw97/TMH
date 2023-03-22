@@ -1,0 +1,28 @@
+{
+    "name": "aungmyokyaw/tmh",
+    "description": "SMS",
+    "require": {
+        "guzzlehttp/guzzle": "^7.5"
+    },
+    "autoload": {
+        "psr-4": {
+            "Aungmyokyaw\\Tmh\\": "src/"
+        }
+    },
+    "extra": {
+        "laravel": {
+            "providers": [
+                "Amk\\Tmh\\Provider\\TmhServiceProvider"
+            ],
+            "aliases": {
+                "TMH" : "Amk\\Tmh\\Facades\\TMH"
+            }
+        }
+    },
+    "authors": [
+        {
+            "name": "AungMyoKyaw",
+            "email": "amk01.dev@gmail.com"
+        }
+    ]
+}

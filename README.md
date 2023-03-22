@@ -3,3 +3,9 @@
 
 
 ## Installation
+
+```sh
+
+composer require aungmyokyaw/tmh
+
+```

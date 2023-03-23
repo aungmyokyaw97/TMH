@@ -1,4 +1,6 @@
 ## Laravel package for Tah Moe Hnye` SMS and One-Time Password (OTP) Integration
+## About
+This package is designed specifically for Tah Moe Hnye` SMS, providing a simple and efficient way to send SMS messages using Laravel. With features such as easy integration, customizable OTP, and detailed message.
 ## Installation
 ```shel
 composer require aungmyokyaw/tmh

@@ -4,6 +4,7 @@
     "keywords": ["laravel","TMH","package","Tah Moe Hnye","SMS"],
     "license": "MIT",
     "require": {
+        "php": "^7.2|^8.2",
         "guzzlehttp/guzzle": "^6.3|^7.5",
         "laravel/framework": "^10.0|^9.0|^8.0|^7.0"
     },

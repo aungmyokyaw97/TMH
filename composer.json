@@ -1,7 +1,7 @@
 {
     "name": "aungmyokyaw/tmh",
     "description": "Laravel SMS package for Tah Moe Hnye`",
-    "keywords": ["laravel","TMH","package","Tah Moe Hnye","SMS"],
+    "keywords": ["laravel","TMH","package","Tah Moe Hnye","SMS","OTP"],
     "license": "MIT",
     "require": {
         "php": "^7.2|^8.0|^8.1|^8.2",

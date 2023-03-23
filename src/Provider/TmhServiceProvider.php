@@ -7,6 +7,13 @@ use Amk\Tmh\TMH;
 
 class TmhServiceProvider extends ServiceProvider {
         
+        /**
+         * [Description for boot]
+         *
+         * @return [type]
+         * 
+         */
+        
         public function boot()
         {
             $this->publishes([
@@ -21,6 +28,13 @@ class TmhServiceProvider extends ServiceProvider {
 
         }
         
+        /**
+         * [Description for register]
+         *
+         * @return [type]
+         * 
+         */
+
         public function register()
         {
             $this->app->bind(TMH::class, function ($app) {

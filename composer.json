@@ -1,8 +1,12 @@
 {
     "name": "aungmyokyaw/tmh",
-    "description": "SMS",
+    "description": "Laravel SMS package for Tah Moe Hnye`",
+    "keywords": ["laravel","TMH","package","Tah Moe Hnye","SMS"],
+    "license": "MIT",
     "require": {
-        "guzzlehttp/guzzle": "^7.5"
+        "php": "^7.2.5 || ^8.1",
+        "guzzlehttp/guzzle": "^6.3 || ^7.5",
+        "laravel/framework": "^10.0|^9.0|^8.0|^7.0"
     },
     "autoload": {
         "psr-4": {
@@ -22,7 +26,7 @@
     "authors": [
         {
             "name": "AungMyoKyaw",
-            "email": "amk01.dev@gmail.com"
+            "email": "aungmyokyaw28637@gmail.com"
         }
     ]
 }

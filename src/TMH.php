@@ -10,22 +10,109 @@ class TMH
 {
     use TMHSMS;
 
+    /**
+     * [Description for $spId]
+     *
+     * @var [type]
+     */
     protected $spId;
+    
+    /**
+     * [Description for $spPassword]
+     *
+     * @var [type]
+     */
     protected $spPassword;
+   
+    /**
+     * [Description for $serviceId]
+     *
+     * @var [type]
+     */
     protected $serviceId;
+    
+    /**
+     * [Description for $senderAddress]
+     *
+     * @var [type]
+     */
     protected $senderAddress;
+    
+    /**
+     * [Description for $callbackData]
+     *
+     * @var [type]
+     */
     protected $callbackData;
+    
+    /**
+     * [Description for $notifyURL]
+     *
+     * @var [type]
+     */
     protected $notifyURL;
+    
+    /**
+     * [Description for $senderName]
+     *
+     * @var [type]
+     */
     protected $senderName;
+    
+    /**
+     * [Description for $domain]
+     *
+     * @var [type]
+     */
     protected $domain;
+    
+    /**
+     * [Description for $one_api_prefix]
+     *
+     * @var [type]
+     */
     protected $one_api_prefix;
+    
+    /**
+     * [Description for $URL]
+     *
+     * @var [type]
+     */
     protected $URL;
+    
+    /**
+     * [Description for $messageType]
+     *
+     * @var [type]
+     */
     protected $messageType;
 
+    /**
+     * [Description for $message]
+     *
+     * @var [type]
+     */
     protected $message;
+    
+    /**
+     * [Description for $otp]
+     *
+     * @var [type]
+     */
     protected $otp;
+    
+    /**
+     * [Description for $configs]
+     *
+     * @var [type]
+     */
     protected $configs;
 
+    /**
+     * [Description for __construct]
+     *
+     * 
+     */
     function __construct()
     {
         $this->configs = file_exists(config_path('tmh.php')) ? include(config_path('tmh.php')) : throw TmhException::info('You need to publish config file.');
@@ -33,6 +120,13 @@ class TMH
     }
 
 
+    /**
+     * [Description for ConfigData]
+     *
+     * @return [type]
+     * 
+     */
+    
     private function ConfigData(){
         $this->spId = $this->getSingleConfigData('spId');
         $this->spPassword = $this->getSingleConfigData('spPassword');
@@ -47,6 +141,15 @@ class TMH
     }
 
 
+    /**
+     * [Description for sms]
+     *
+     * @param string $message
+     * 
+     * @return [type]
+     * 
+     */
+
     public function sms(string $message){           
         $this->message = $message;
         $this->messageType = "SMS";
@@ -55,6 +158,16 @@ class TMH
 
 
     // type => alphabet / numeric / alphanumeric
+    /**
+     * [Description for otp]
+     *
+     * @param string $type
+     * @param int $length
+     * 
+     * @return [type]
+     * 
+     */
+
     public function otp($type = 'numeric',$length = 6){           
         $this->messageType = "OTP";
 
@@ -74,6 +187,16 @@ class TMH
         }
         return $this;
     }
+
+    /**
+     * [Description for makeResponse]
+     *
+     * @param mixed $response
+     * @param mixed $phone
+     * 
+     * @return object
+     * 
+     */
 
     protected function makeResponse($response,$phone): object{           
 
@@ -96,6 +219,15 @@ class TMH
     }
 
 
+    /**
+     * [Description for send]
+     *
+     * @param mixed $phone
+     * 
+     * @return [type]
+     * 
+     */
+    
     public function send($phone){
         $phoneNo = is_array($phone) ? $phone : [$phone];
         $response = $this->prepareRequest($this,$phoneNo);

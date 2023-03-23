@@ -1,4 +1,4 @@
 <?php
 return [
-    'message' => 'သင်ရဲ့ OTP ကတော့ :otp ဖြစ်ပါတယ်။',
+    'message' => 'သင်ရဲ့ OTP ကတော့ :otp ဖြစ်ပါသည်။',
 ];

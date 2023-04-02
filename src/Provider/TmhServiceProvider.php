@@ -16,15 +16,18 @@ class TmhServiceProvider extends ServiceProvider {
         
         public function boot()
         {
-            $this->publishes([
-                __DIR__.'/../config/tmh.php' => config_path('tmh.php')
-            ], 'tmh-config');
-           
+            if ($this->app->runningInConsole()) {
+                $this->publishes([
+                    __DIR__.'/../config/tmh.php' => config_path('tmh.php')
+                ], 'tmh-config');
+
+                $this->publishes([
+                    __DIR__.'/../lang' => resource_path('lang/vendor/tmh')
+                ], 'tmh-translation');
+            }
+                
             $this->loadTranslationsFrom(__DIR__.'/../lang', 'tmh');
-    
-            $this->publishes([
-                __DIR__.'/../lang' => resource_path('lang/vendor/tmh')
-            ], 'tmh-translation');
+
 
         }
         

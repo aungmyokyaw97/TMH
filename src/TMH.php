@@ -4,6 +4,7 @@ namespace Amk\Tmh;
 
 use Amk\Tmh\Contracts\TmhServiceContract;
 use Illuminate\Support\Collection;
+use Illuminate\Support\Facades\Config;
 use Amk\Tmh\Exceptions\TmhException;
 use Amk\Tmh\Traits\TMHSMS;
 
@@ -116,7 +117,7 @@ class TMH implements TmhServiceContract
      */
     function __construct()
     {
-        $this->configs = file_exists(config_path('tmh.php')) ? include(config_path('tmh.php')) : throw TmhException::info('You need to publish config file.');
+        $this->configs = Config('tmh') != null ? Config('tmh') : throw TmhException::info('You need to publish config file.');
         $this->ConfigData();
     }
 

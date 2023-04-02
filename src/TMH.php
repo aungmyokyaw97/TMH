@@ -2,11 +2,12 @@
 
 namespace Amk\Tmh;
 
+use Amk\Tmh\Contracts\TmhServiceContract;
 use Illuminate\Support\Collection;
 use Amk\Tmh\Exceptions\TmhException;
 use Amk\Tmh\Traits\TMHSMS;
 
-class TMH
+class TMH implements TmhServiceContract
 {
     use TMHSMS;
 
@@ -168,7 +169,7 @@ class TMH
      * 
      */
 
-    public function otp($type = 'numeric',$length = 6){           
+    public function otp(string $type = 'numeric',int $length = 6){           
         $this->messageType = "OTP";
 
         switch ($type) {
@@ -180,10 +181,12 @@ class TMH
                 $this->otp = $this->alphanumericRandom($length);
                 $this->message = trans('tmh::otp.message', ['otp' => $this->otp]);
                 break;
-            default:
+            case 'numeric':
                 $this->otp = $this->numericRandom($length);
                 $this->message = trans('tmh::otp.message', ['otp' => $this->otp]);
                 break;
+            default:
+            throw TmhException::info('Unknow OTP type.');
         }
         return $this;
     }
@@ -232,6 +235,6 @@ class TMH
         $phoneNo = is_array($phone) ? $phone : [$phone];
         $response = $this->prepareRequest($this,$phoneNo);
         return $this->makeResponse($response,$phone);
-        
     }
+  
 }
